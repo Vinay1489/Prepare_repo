@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "d10014fa-660c-4cb2-be08-1839f3c29242",
+		"name": "Expense_Track",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36382213"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Pranay Vennampally\",\r\n    \"password\":\"pranay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}register",
+							"host": [
+								"{{URL}}register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}users",
+							"host": [
+								"{{URL}}users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expenses",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Expense 1\",\r\n    \"amount\":\"500\",\r\n    \"category\":\"food\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}create",
+							"host": [
+								"{{URL}}create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Expenses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Expense 1\",\r\n    \"amount\":\"500\",\r\n    \"category\":\"food\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}",
+							"host": [
+								"{{URL}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Expenses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Expense 1\",\r\n    \"amount\":\"500\",\r\n    \"category\":\"food\"\r\n}"
+								},
+								"url": {
+									"raw": "{{URL}}",
+									"host": [
+										"{{URL}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Sep 2025 03:10:32 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1757214693"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "690"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b2-HlGz0PkSUQCyQctZc+NAykXeRMk\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Results\": 4,\n    \"expenses\": [\n        {\n            \"_id\": \"68bcf4a33a4c06bfec2190f7\",\n            \"title\": \"Expense 1\",\n            \"amount\": \"500\",\n            \"category\": \"food\",\n            \"userId\": \"68bb108f012318be29d19e81\",\n            \"date\": \"2025-09-07T02:57:39.165Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"68bcf6913a4c06bfec2190ff\",\n            \"title\": \"Expense 1\",\n            \"amount\": \"500\",\n            \"category\": \"food\",\n            \"userId\": \"68bb108f012318be29d19e81\",\n            \"date\": \"2025-09-07T03:05:53.447Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"68bcf76a3a4c06bfec219106\",\n            \"title\": \"Expense 1\",\n            \"amount\": \"500\",\n            \"category\": \"food\",\n            \"userId\": \"68bb108f012318be29d19e81\",\n            \"date\": \"2025-09-07T03:09:30.761Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"68bcf77d3a4c06bfec219109\",\n            \"title\": \"Expense 1\",\n            \"amount\": \"500\",\n            \"category\": \"food\",\n            \"userId\": \"68bb108f012318be29d19e81\",\n            \"date\": \"2025-09-07T03:09:49.659Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Expense",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Expense\",\r\n    \"amount\":\"500000\",\r\n    \"category\":\"food\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}update/68bc6a312c87fede17767b7b",
+							"host": [
+								"{{URL}}update"
+							],
+							"path": [
+								"68bc6a312c87fede17767b7b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Expense",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Expense\",\r\n    \"amount\":\"500000\",\r\n    \"category\":\"food\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}delete/68bc6a312c87fede17767b7b",
+							"host": [
+								"{{URL}}delete"
+							],
+							"path": [
+								"68bc6a312c87fede17767b7b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Check",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
